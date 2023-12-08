@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ManufacturerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
+
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
+Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+Route::get('/cars/{id}', [CarController::class, 'details'])->name('cars.details');
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
