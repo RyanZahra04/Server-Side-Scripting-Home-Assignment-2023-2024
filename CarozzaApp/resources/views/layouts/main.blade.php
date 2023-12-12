@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand text-uppercase" href="index.html">
+            <a class="navbar-brand text-uppercase" href="#">
                 <strong>Carozza</strong> App
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
