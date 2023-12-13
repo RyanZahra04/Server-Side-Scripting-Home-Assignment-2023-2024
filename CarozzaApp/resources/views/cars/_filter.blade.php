@@ -5,10 +5,9 @@
             <div class="col">
                 <div class="input-group mb-3">
                     <select id="filter_manufacturer_id" name="manufacturer_id" class="custom-select">
-                        <option value="" selected>All Manufacturers</option>
-                        <option value="1">Manufacturer One</option>
-                        <option value="2">Manufacturer Two</option>
-                        <option value="3">Manufacturer Three</option>
+                        @foreach ($allManufacturers as $id => $manufacturer)
+                            <option value="{{ $id }}" {{ $id == request('manufacturer_id') ? 'selected' : '' }}>{{ $manufacturer }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

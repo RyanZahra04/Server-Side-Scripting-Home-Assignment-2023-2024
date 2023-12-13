@@ -24,30 +24,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Toyota Motor Corporation</td>
-                                    <td>HQ, Kyoto District, Tokyo Japan</td>
-                                    <td>+1 800 233 8232</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>BMW GRoup</td>
-                                    <td>HQ, Bavaria STate, Berlin, Germany</td>
-                                    <td>+12 234 8552 923</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Audi AG</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Honda Motor Corp</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                </tr>
+                                @foreach ($allManufacturers as $x => $manufacturer)
+                                    <tr>
+                                        <th scope="row">{{ $x + 1 }}</th>
+                                        <td>{{ $manufacturer->name }}</td>
+                                        <td>{{ $manufacturer->address ?? "--" }}</td>
+                                        <td>{{ $manufacturer->phone ?? "--"}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

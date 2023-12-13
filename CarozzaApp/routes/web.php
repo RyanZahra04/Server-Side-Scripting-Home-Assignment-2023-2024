@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CarController::class, 'index']);
 
-Route::get('/cars', [CarController::class, 'index']);
-Route::get('/manufacturers', [ManufacturerController::class, 'index']);
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
 Route::get('/cars/create', [CarController::class, 'create']);
 Route::get('/cars/{id}', [CarController::class, 'details']);
 Route::get('/cars/{id}/edit', [CarController::class, 'edit']);
