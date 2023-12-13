@@ -7,42 +7,50 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header card-title">
-                            <strong>Edit Car: Id 1</strong>
+                            <strong>Edit Car: Id {{ $car->id }}</strong>
                         </div>
-                        <form action="">
+                        <form action="{{ route('cars.update', $car->id) }}" method="POST">
+                            @method('PUT')
+                            @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group row">
                                             <label for="model" class="col-md-3 col-form-label">Model</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="model" id="model"
-                                                    class="form-control" value="Camri">
-                                                <!--<div class="invalid-feedback">
-                                                    Please specify model.
-                                                </div>-->
+                                                <input type="text" name="model" id="model" value="{{ old('model', $car->model) }}"
+                                                    class="form-control @error('model') is-invalid @enderror">
+                                                @error('model')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="year" class="col-md-3 col-form-label">Year</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="year" id="year"
-                                                    class="form-control" value="2010">
-                                                <!--<div class="invalid-feedback">
-                                                    Please specify year.
-                                                </div>-->
+                                                <input type="text" name="year" id="year" value="{{ old('year', $car->year) }}"
+                                                    class="form-control @error('year') is-invalid @enderror">
+                                                    @error('year')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="email" class="col-md-3 col-form-label">Salesperson Email</label>
                                             <div class="col-md-9">
-                                                <input type="email" name="email" id="email"
-                                                    class="form-control" value="joe@carozza.com">
-                                                <!--<div class="invalid-feedback">
-                                                    Please specify email.
-                                                </div>-->
+                                                <input type="email" name="email" id="email" value="{{ old('email', $car->salesperson_email) }}"
+                                                    class="form-control @error('email') is-invalid @enderror">
+                                                    @error('email')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -51,22 +59,25 @@
                                                 class="col-md-3 col-form-label">Manufacturer</label>
                                             <div class="col-md-9">
                                                 <select name="manufacturer_id" id="manufacturer_id"
-                                                    class="form-control">
+                                                    class="form-control @error('manufacturer_id') is-invalid @enderror">
                                                     <option value="">Select Manufacturer</option>
-                                                    <option selected value="1">Toyota Motor Corp</option>
-                                                    <option value="2">Manufacturer Two</option>
-                                                    <option value="3">Manufacturer Three</option>
+                                                    @foreach ($allManufacturers as $id => $manufacturer)
+                                                        <option {{ $id == old('manufacturer_id', $car->manufacturer->id) ? 'selected' : '' }} value="{{ $id }}">{{ $manufacturer }}</option>
+                                                    @endforeach
                                                 </select>
-                                                <!--<div class="invalid-feedback">
-                                                    Please specify Manufacturer.
-                                                </div>-->
+                                                @error('manufacturer_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="form-group row mb-0">
                                             <div class="col-md-9 offset-md-3">
                                                 <button type="submit" class="btn btn-primary">Save</button>
-                                                <a href="" class="btn btn-outline-secondary">Cancel</a>
+                                                <a href="{{ route('cars.index') }}"
+                                                    class="btn btn-outline-secondary">Cancel</a>
                                             </div>
                                         </div>
                                     </div>
