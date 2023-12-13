@@ -43,13 +43,14 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-9 offset-md-3">
                                             <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-info">Edit</a>
-                                            <a href="#" class="btn btn-outline-danger">Delete</a>
+                                            <a href="{{ route('cars.delete', $car->id) }}" class="btn-delete btn btn-outline-danger">Delete</a>
                                             <a href="{{ route('cars.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @include('cars._delete')
                     </div>
                 </div>
             </div>

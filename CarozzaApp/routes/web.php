@@ -24,3 +24,4 @@ Route::post('/cars', [CarController::class, 'save'])->name(('cars.save'));
 Route::get('/cars/{id}', [CarController::class, 'details'])->name(('cars.details'));
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 Route::put('/cars/{id}', [CarController::class, 'update'])->name(('cars.update'));
+Route::delete('/cars/{id}', [CarController::class, 'delete'])->name(('cars.delete'));
