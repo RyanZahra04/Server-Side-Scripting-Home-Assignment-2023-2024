@@ -24,8 +24,10 @@ class CarController extends Controller
         return view('cars.create');
     }
 
-    public function details(){
-        return view('cars.details');
+    public function details($id){
+
+        $car = Car::find($id);
+        return view('cars.details', compact('car'));
     }
 
     public function edit(){

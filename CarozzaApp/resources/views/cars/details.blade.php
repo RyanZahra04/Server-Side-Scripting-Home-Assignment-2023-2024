@@ -15,28 +15,28 @@
                                     <div class="form-group row">
                                         <label for="model" class="col-md-3 col-form-label">Model</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">Camry</p>
+                                            <p class="form-control-plaintext text-muted">{{ $car->model }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="year" class="col-md-3 col-form-label">Year</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">2010</p>
+                                            <p class="form-control-plaintext text-muted">{{ $car->year }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="email" class="col-md-3 col-form-label">Email</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">test1@test.com</p>
+                                            <p class="form-control-plaintext text-muted">{{ $car->salesperson_email }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="manufacturer_id" class="col-md-3 col-form-label">Manufacturer</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">Manufacturer one</p>
+                                            <p class="form-control-plaintext text-muted">{{ $car->manufacturer->name }}</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -44,7 +44,7 @@
                                         <div class="col-md-9 offset-md-3">
                                             <a href="#" class="btn btn-info">Edit</a>
                                             <a href="#" class="btn btn-outline-danger">Delete</a>
-                                            <a href="#" class="btn btn-outline-secondary">Cancel</a>
+                                            <a href="{{ route('cars.index') }}" class="btn btn-outline-secondary">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
