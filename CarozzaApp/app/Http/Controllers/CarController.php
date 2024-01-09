@@ -37,7 +37,7 @@ class CarController extends Controller
 
         Manufacturer::find($request->manufacturer_id)->cars()->save(new Car(["model"=>$request->model,"year"=>$request->year,"salesperson_email"=>$request->email]));
 
-        return redirect()->route('cars.index');
+        return redirect()->route('cars.index')->with('message', 'Car added successfully');
     }
 
     public function details($id){
